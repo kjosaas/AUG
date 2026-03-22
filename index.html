@@ -86,17 +86,6 @@
             margin: 0 auto;
         }
 
-        .eyebrow {
-            display: inline-flex;
-            margin-bottom: 12px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(0, 123, 94, 0.1);
-            color: var(--brand-dark);
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
         h1,
         h2,
         h3 {
@@ -119,18 +108,8 @@
             max-width: 62ch;
         }
 
-        .hero__actions,
-        .contact-links,
-        .socials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
         .button-link,
-        .socials a,
-        .news-card__link,
-        .email-link {
+        .news-card__link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -146,19 +125,10 @@
             color: #fff;
         }
 
-        .button-link--secondary {
-            background: rgba(0, 123, 94, 0.1);
-            color: var(--brand-dark);
-        }
-
         .button-link:hover,
         .button-link:focus-visible,
-        .socials a:hover,
-        .socials a:focus-visible,
         .news-card__link:hover,
-        .news-card__link:focus-visible,
-        .email-link:hover,
-        .email-link:focus-visible {
+        .news-card__link:focus-visible {
             transform: translateY(-1px);
         }
 
@@ -210,16 +180,50 @@
             color: var(--text);
         }
 
-        .news-card__link,
-        .email-link {
+        .news-card__link {
             width: fit-content;
             background: rgba(0, 123, 94, 0.12);
             color: var(--brand-dark);
         }
 
         .contact-copy {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             max-width: 56ch;
+        }
+
+        /* ── Kontaktlenker – tre likeverdige elementer ── */
+
+        .contact-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-grid a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 12px 18px;
+            border-radius: 14px;
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .contact-grid a:hover,
+        .contact-grid a:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            color: var(--brand-dark);
+        }
+
+        .contact-grid svg {
+            flex-shrink: 0;
         }
 
         .site-footer {
@@ -304,7 +308,8 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 16px;
             padding: 24px;
-            display: grid;
+            display: flex;
+            flex-direction: column;
             gap: 16px;
         }
 
@@ -345,6 +350,7 @@
             font-weight: 700;
             letter-spacing: 0.02em;
             box-shadow: 0 4px 16px rgba(255, 91, 36, 0.35);
+            margin-top: auto;
         }
 
         .membership__vipps-number svg {
@@ -358,6 +364,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 14px;
             text-align: center;
         }
@@ -403,8 +410,12 @@
             }
 
             .membership__grid {
-                grid-template-columns: 1fr auto;
-                align-items: start;
+                grid-template-columns: 1fr 1fr;
+                align-items: stretch;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1fr 1fr;
             }
         }
 
@@ -473,12 +484,12 @@
         <div class="popup__dialog">
             <div class="popup__content">
                 <button class="popup__close" id="popup-close" type="button" aria-label="Lukk varsel">×</button>
-                <h2 class="popup__title">Vel møtt til årsmøte for Arkivarer uten grenser Norge!</h2>
-                <p class="popup__text">Vi arbeider for å fremje internasjonal solidaritet på arkivfeltet, auke medvitet om betydninga av dokumentasjon og styrkje tilgangen til historiske kjelder som grunnlag for demokrati og kunnskap.</p>
-                <p class="popup__text">Vi inviterer alle til å sende inn saker til årsmøtet. Har du noko du ønskjer å løfte, er dette ei god anledning til å bidra.</p>
+                <h2 class="popup__title">Velkommen til årsmøte for Arkivarer uten grenser Norge!</h2>
+                <p class="popup__text">Vi arbeider for å fremme internasjonal solidaritet på arkivfeltet, øke bevisstheten om dokumentasjonens betydning og styrke tilgangen til historiske kilder som grunnlag for demokrati og kunnskap.</p>
+                <p class="popup__text">Vi inviterer alle til å sende inn saker til årsmøtet. Har du noe du ønsker å løfte, er dette en god anledning til å bidra.</p>
                 <p class="popup__text">Frist for innsending av saker er 27. mars.</p>
-                <p class="popup__text">Årsmøtet vert halde digitalt på Teams 9. april 2026 kl. 15.30.</p>
-                <p class="popup__text">Ta kontakt for kalenderinvitasjon og del gjerne vidare til andre interesserte: <a href="mailto:arkivarerutengrenser@protonmail.com">arkivarerutengrenser@protonmail.com</a></p>
+                <p class="popup__text">Årsmøtet holdes digitalt på Teams 9. april 2026 kl. 15.30.</p>
+                <p class="popup__text">Ta kontakt for kalenderinvitasjon og del gjerne videre til andre interesserte: <a href="mailto:arkivarerutengrenser@protonmail.com">arkivarerutengrenser@protonmail.com</a></p>
             </div>
         </div>
     </aside>
@@ -502,7 +513,7 @@
                     Bli medlem
                 </div>
                 <h2>Støtt arkivsolidaritet over landegrensene</h2>
-                <p>Bli medlem i Arkivarer uten grenser Norge og bidra til å bevare arkiv, styrke dokumentasjonsarbeid og fremme tilgang til historiske kjelder verda over.</p>
+                <p>Bli medlem i Arkivarer uten grenser Norge og bidra til å bevare arkiver, styrke dokumentasjonsarbeid og fremme tilgang til historiske kilder verden over.</p>
 
                 <div class="membership__grid">
                     <div class="membership__price-card">
@@ -534,12 +545,12 @@
                     <img
                         class="news-card__image"
                         src="https://image.aksess-tidsskrift.no/261933.webp?imageId=261933&width=2116&height=1208&format=webp"
-                        alt="Palestinaplakater frå den palestinske solidaritetsbevegelsen i Noreg"
+                        alt="Palestinaplakater fra den palestinske solidaritetsbevegelsen i Norge"
                     >
                     <div class="news-card__content">
                         <h3 class="news-card__title">Palestinaplakater – arkivering som frihetskamp</h3>
-                        <p>Arkivarer uten grenser Norge deltar i samarbeidet rundt prosjektet «Palestinaplakater». Prosjektet viser hvordan arkivmateriale dokumenterer solidaritetsarbeid og politisk historie, og inkluderer digitalisering og formidling av plakater frå den palestinske solidaritetsbevegelsen i Noreg.</p>
-                        <a class="news-card__link" href="https://www.aksess-tidsskrift.no/aktuelt/arkivarbeid-ayman-alazraq-palestinaplakater/261924" target="_blank" rel="noopener noreferrer">Les saka hos Aksess Tidsskrift</a>
+                        <p>Arkivarer uten grenser Norge deltar i samarbeidet rundt prosjektet «Palestinaplakater». Prosjektet viser hvordan arkivmateriale dokumenterer solidaritetsarbeid og politisk historie, og inkluderer digitalisering og formidling av plakater fra den palestinske solidaritetsbevegelsen i Norge.</p>
+                        <a class="news-card__link" href="https://www.aksess-tidsskrift.no/aktuelt/arkivarbeid-ayman-alazraq-palestinaplakater/261924" target="_blank" rel="noopener noreferrer">Les saken hos Aksess Tidsskrift</a>
                     </div>
                 </li>
             </ul>
@@ -549,13 +560,20 @@
             <div class="section__header">
                 <h2>Ta kontakt med oss</h2>
             </div>
-            <p class="contact-copy">Vi jobber for tiden med å oppdatere våre nettsider. Ta gjerne kontakt dersom du ønsker mer informasjon om arbeidet vårt eller aktuelle samarbeid.</p>
-            <div class="contact-links">
-                <a class="email-link" href="mailto:arkivarerutengrenser@protonmail.com">arkivarerutengrenser@protonmail.com</a>
-            </div>
-            <div class="socials">
-                <a href="https://www.instagram.com/arkivarerutengrenser/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://www.linkedin.com/company/arkivarer-uten-grenser/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <p class="contact-copy">Vi jobber for tiden med å oppdatere nettsidene våre. Ta gjerne kontakt dersom du ønsker mer informasjon om arbeidet vårt eller aktuelle samarbeid.</p>
+            <div class="contact-grid">
+                <a href="mailto:arkivarerutengrenser@protonmail.com">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    E-post
+                </a>
+                <a href="https://www.instagram.com/arkivarerutengrenser/" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+                    Instagram
+                </a>
+                <a href="https://www.linkedin.com/company/arkivarer-uten-grenser/" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    LinkedIn
+                </a>
             </div>
         </section>
 
