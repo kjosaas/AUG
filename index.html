@@ -357,6 +357,13 @@
             flex-shrink: 0;
         }
 
+        .membership__terms {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 54ch;
+            line-height: 1.5;
+        }
+
         .membership__qr-card {
             background: #fff;
             border-radius: 16px;
@@ -381,6 +388,37 @@
             color: var(--muted);
         }
 
+        /* ── Donasjoner ── */
+
+        .donation {
+            margin-top: 20px;
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .donation .section__header {
+            margin-bottom: 18px;
+        }
+
+        .donation p {
+            max-width: 56ch;
+        }
+
+        /* ── Organisasjonsnummer ── */
+
+        .org-number {
+            margin-top: 20px;
+            font-size: 0.92rem;
+            color: var(--muted);
+        }
+
+        .org-number a {
+            font-weight: 600;
+        }
+
         @media (min-width: 700px) {
             .page {
                 padding: 96px 24px 48px;
@@ -388,7 +426,8 @@
 
             .hero,
             .section,
-            .site-footer {
+            .site-footer,
+            .donation {
                 padding: 32px;
             }
 
@@ -533,7 +572,17 @@
                         <span class="membership__qr-label">Skann for å betale med Vipps</span>
                     </div>
                 </div>
+
+                <p class="membership__terms">Det er ingen bindingstid. Dersom du ønsker å melde deg ut for inneværende periode, ta kontakt på <a href="mailto:arkivarerutengrenser@protonmail.com" style="color: rgba(255,255,255,0.9); text-decoration: underline;">e-post</a>. Betalt kontingent refunderes ikke.</p>
             </div>
+        </section>
+
+        <!-- ── Donasjoner ── -->
+        <section class="donation" id="donasjoner">
+            <div class="section__header">
+                <h2>Donasjoner</h2>
+            </div>
+            <p>Vi jobber for tiden med å få på plass en donasjonsløsning via Vipps. Om du ønsker å donere til Arkivarer uten grenser sitt arbeid, ta kontakt med oss på <a href="mailto:arkivarerutengrenser@protonmail.com">e-post</a>.</p>
         </section>
 
         <section class="section" id="aktuelt">
@@ -575,6 +624,7 @@
                     LinkedIn
                 </a>
             </div>
+            <p class="org-number">Org.nr. <a href="https://virksomhet.brreg.no/nb/oppslag/enheter/997110498" target="_blank" rel="noopener noreferrer">997 110 498</a></p>
         </section>
 
     </main>
