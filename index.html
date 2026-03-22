@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arkivarer uten grenser Norge</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;700&display=swap');
 
         :root {
-            --bg: #f3f5f4;
+            --bg: #f4f4f4;
             --surface: #ffffff;
-            --surface-muted: #f7f9f8;
+            --surface-alt: #f7faf8;
             --text: #22302b;
-            --muted: #4d5b56;
+            --muted: #52605b;
             --brand: #007b5e;
             --brand-dark: #005845;
+            --accent: #f4a000;
             --border: rgba(0, 0, 0, 0.08);
-            --shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+            --shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
             --radius: 18px;
-            --max-width: 920px;
+            --max-width: 960px;
         }
 
         * {
@@ -34,7 +35,7 @@
         body {
             min-height: 100vh;
             font-family: 'Barlow', sans-serif;
-            background: var(--bg);
+            background: linear-gradient(180deg, #eef4f1 0%, var(--bg) 100%);
             color: var(--text);
             line-height: 1.6;
         }
@@ -58,10 +59,12 @@
         .page {
             width: min(100%, var(--max-width));
             margin: 0 auto;
-            padding: 72px 16px 40px;
+            padding: 88px 16px 40px;
         }
 
-        .panel {
+        .hero,
+        .section,
+        .site-footer {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -74,13 +77,24 @@
 
         .hero__content {
             display: grid;
-            gap: 20px;
+            gap: 24px;
             align-items: center;
         }
 
         .logo {
-            width: min(170px, 42vw);
+            width: min(180px, 45vw);
             margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            margin-bottom: 12px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(0, 123, 94, 0.1);
+            color: var(--brand-dark);
+            font-size: 0.95rem;
+            font-weight: 600;
         }
 
         h1,
@@ -90,39 +104,33 @@
         }
 
         h1 {
-            margin-bottom: 14px;
-            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-size: clamp(2rem, 5vw, 3.4rem);
             color: var(--brand);
-        }
-
-        h2 {
-            margin-bottom: 14px;
-            font-size: clamp(1.55rem, 4vw, 2rem);
-            color: var(--text);
+            margin-bottom: 16px;
         }
 
         p {
             color: var(--muted);
+            font-size: 1rem;
         }
 
-        .hero p,
-        .section p {
-            max-width: 64ch;
+        .lead {
+            font-size: 1.08rem;
+            max-width: 62ch;
         }
 
-        .actions,
+        .hero__actions,
         .contact-links,
         .socials {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 20px;
         }
 
-        .button,
-        .contact-links a,
+        .button-link,
         .socials a,
-        .news-card__link {
+        .news-card__link,
+        .email-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -133,39 +141,55 @@
             text-decoration: none;
         }
 
-        .button {
+        .button-link {
             background: var(--brand);
             color: #fff;
         }
 
-        .button--secondary,
-        .contact-links a,
-        .socials a,
-        .news-card__link {
+        .button-link--secondary {
             background: rgba(0, 123, 94, 0.1);
             color: var(--brand-dark);
         }
 
-        .section {
+        .button-link:hover,
+        .button-link:focus-visible,
+        .socials a:hover,
+        .socials a:focus-visible,
+        .news-card__link:hover,
+        .news-card__link:focus-visible,
+        .email-link:hover,
+        .email-link:focus-visible {
+            transform: translateY(-1px);
+        }
+
+        .section,
+        .site-footer {
             margin-top: 20px;
             padding: 24px;
         }
 
-        .section > p + * {
-            margin-top: 18px;
+        .section__header {
+            margin-bottom: 18px;
+        }
+
+        .section__header p {
+            margin-top: 8px;
+            max-width: 68ch;
         }
 
         .news-list {
             list-style: none;
+            display: grid;
+            gap: 16px;
         }
 
         .news-card {
             display: grid;
             gap: 18px;
             padding: 18px;
-            border-radius: 16px;
-            background: var(--surface-muted);
             border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--surface-alt);
         }
 
         .news-card__image {
@@ -182,7 +206,29 @@
         }
 
         .news-card__title {
-            font-size: clamp(1.25rem, 3vw, 1.6rem);
+            font-size: clamp(1.3rem, 3vw, 1.7rem);
+            color: var(--text);
+        }
+
+        .news-card__link,
+        .email-link {
+            width: fit-content;
+            background: rgba(0, 123, 94, 0.12);
+            color: var(--brand-dark);
+        }
+
+        .contact-copy {
+            margin-bottom: 16px;
+            max-width: 56ch;
+        }
+
+        .site-footer {
+            display: grid;
+            gap: 16px;
+        }
+
+        .site-footer p {
+            color: var(--muted);
         }
 
         .popup {
@@ -197,7 +243,7 @@
         }
 
         .popup__dialog {
-            width: min(100%, 520px);
+            width: min(100%, 420px);
             margin-left: auto;
             background: #fff;
             border: 1px solid var(--border);
@@ -209,10 +255,17 @@
         .popup__content {
             position: relative;
             padding: 20px 52px 20px 20px;
+            display: grid;
+            gap: 10px;
         }
 
-        .popup__content p + p {
-            margin-top: 12px;
+        .popup__title {
+            color: var(--brand-dark);
+            font-size: 1.15rem;
+        }
+
+        .popup__text {
+            color: var(--muted);
         }
 
         .popup__close {
@@ -237,17 +290,17 @@
 
         @media (min-width: 700px) {
             .page {
-                padding: 88px 24px 48px;
+                padding: 96px 24px 48px;
             }
 
             .hero,
-            .section {
+            .section,
+            .site-footer {
                 padding: 32px;
             }
 
             .hero__content {
-                grid-template-columns: minmax(180px, 220px) 1fr;
-                gap: 28px;
+                grid-template-columns: minmax(180px, 240px) 1fr;
             }
 
             .logo {
@@ -266,60 +319,74 @@
         <div class="popup__dialog">
             <div class="popup__content">
                 <button class="popup__close" id="popup-close" type="button" aria-label="Lukk varsel">×</button>
-                <p><strong>Vel møtt til årsmøte for Arkivarer uten grenser Norge!</strong></p>
-                <p>Vi arbeider for å fremje internasjonal solidaritet på arkivfeltet, auke medvitet om betydninga av dokumentasjon og styrkje tilgangen til historiske kjelder som grunnlag for demokrati og kunnskap.</p>
-                <p>Vi inviterer alle til å sende inn saker til årsmøtet. Har du noko du ønskjer å løfte, er dette ei god anledning til å bidra.</p>
-                <p>Frist for innsending av saker er 27. mars.</p>
-                <p>Årsmøtet vert halde digitalt på Teams 9. april 2026 kl. 15.30.</p>
-                <p>Ta kontakt for kalenderinvitasjon (og del gjerne vidare til andre interesserte):<br><a href="mailto:arkivarerutengrenser@protonmail.com">arkivarerutengrenser@protonmail.com</a></p>
+                <p class="eyebrow">Midlertidig varsel</p>
+                <h2 class="popup__title">[bruk teksten du skrev – uendret]</h2>
+                <p class="popup__text">[bruk teksten du skrev – uendret]</p>
             </div>
         </div>
     </aside>
 
     <main class="page">
-        <section class="hero panel" id="intro">
+        <section class="hero" id="intro">
             <div class="hero__content">
                 <img src="thumbnail_image001.png" alt="Arkivarer uten grenser Norge logo" class="logo">
                 <div>
+                    <p class="eyebrow">Internasjonal solidaritet på arkivfeltet</p>
                     <h1>Arkivarer uten grenser Norge</h1>
-                    <p>Arkivarer uten grenser jobber for å fremme internasjonal solidaritet på arkivfeltet, øke bevisstheten om dokumentasjonens betydning og styrke tilgangen til historiske kilder som grunnlag for demokrati og kunnskap.</p>
-                    <div class="actions">
-                        <a class="button" href="#aktuelt">Aktuelt</a>
-                        <a class="button button--secondary" href="#kontakt">Kontakt</a>
+                    <p class="lead">Arkivarer uten grenser jobber for å fremme internasjonal solidaritet på arkivfeltet. Vi arbeider for å sikre at arkiver bevares, øke bevisstheten om dokumentasjonens betydning, og styrke tilgangen til historiske kilder som grunnlag for demokrati og kunnskap.</p>
+                    <div class="hero__actions">
+                        <a class="button-link" href="#aktuelt">Se aktuelt</a>
+                        <a class="button-link button-link--secondary" href="#kontakt">Kontakt oss</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section panel" id="aktuelt">
-            <h2>Aktuelt</h2>
+        <section class="section" id="aktuelt">
+            <div class="section__header">
+                <p class="eyebrow">Aktuelt</p>
+                <h2>Siste nytt frå verksemda</h2>
+                <p>Denne seksjonen er bygd som ei liste slik at fleire saker enkelt kan leggast til på same side seinare.</p>
+            </div>
             <ul class="news-list">
                 <li class="news-card">
                     <img
                         class="news-card__image"
                         src="https://image.aksess-tidsskrift.no/261933.webp?imageId=261933&width=2116&height=1208&format=webp"
-                        alt="Palestinaplakater fra den palestinske solidaritetsbevegelsen i Norge"
+                        alt="Palestinaplakater frå den palestinske solidaritetsbevegelsen i Noreg"
                     >
                     <div class="news-card__content">
                         <h3 class="news-card__title">Palestinaplakater – arkivering som frihetskamp</h3>
-                        <p>Arkivarer uten grenser Norge deltar i samarbeidet rundt prosjektet «Palestinaplakater». Prosjektet viser hvordan arkivmateriale dokumenterer solidaritetsarbeid og politisk historie, og inkluderer digitalisering og formidling av plakater fra den palestinske solidaritetsbevegelsen i Norge.</p>
-                        <a class="news-card__link" href="https://www.aksess-tidsskrift.no/aktuelt/arkivarbeid-ayman-alazraq-palestinaplakater/261924" target="_blank" rel="noopener noreferrer">Les saken hos Aksess Tidsskrift</a>
+                        <p>Arkivarer uten grenser Norge deltar i samarbeidet rundt prosjektet «Palestinaplakater». Prosjektet viser hvordan arkivmateriale dokumenterer solidaritetsarbeid og politisk historie, og inkluderer digitalisering og formidling av plakater frå den palestinske solidaritetsbevegelsen i Noreg.</p>
+                        <a class="news-card__link" href="https://www.aksess-tidsskrift.no/aktuelt/arkivarbeid-ayman-alazraq-palestinaplakater/261924" target="_blank" rel="noopener noreferrer">Les saka hos Aksess Tidsskrift</a>
                     </div>
                 </li>
             </ul>
         </section>
 
-        <section class="section panel" id="kontakt">
-            <h2>Kontakt</h2>
-            <p>Vi jobber med å oppdatere nettsiden. Ta gjerne kontakt hvis du ønsker mer informasjon om arbeidet vårt eller aktuelle samarbeid.</p>
+        <section class="section" id="kontakt">
+            <div class="section__header">
+                <p class="eyebrow">Kontakt</p>
+                <h2>Ta kontakt med oss</h2>
+            </div>
+            <p class="contact-copy">Vi jobber for tiden med å oppdatere våre nettsider. Ta gjerne kontakt dersom du ønsker mer informasjon om arbeidet vårt eller aktuelle samarbeid.</p>
             <div class="contact-links">
-                <a href="mailto:arkivarerutengrenser@protonmail.com">arkivarerutengrenser@protonmail.com</a>
+                <a class="email-link" href="mailto:arkivarerutengrenser@protonmail.com">arkivarerutengrenser@protonmail.com</a>
             </div>
             <div class="socials">
                 <a href="https://www.instagram.com/arkivarerutengrenser/" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <a href="https://www.linkedin.com/company/arkivarer-uten-grenser/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
         </section>
+
+        <footer class="site-footer">
+            <div>
+                <p class="eyebrow">Footer</p>
+                <h2>Arkivarer uten grenser Norge</h2>
+            </div>
+            <p>Kontakt: <a href="mailto:arkivarerutengrenser@protonmail.com">arkivarerutengrenser@protonmail.com</a></p>
+            <p>Nettsiden er framleis ei lettvekts éin-side løysing, no med betre mobilvisning, kontaktinformasjon og aktuelt-blokk.</p>
+        </footer>
     </main>
 
     <script>
